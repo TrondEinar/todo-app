@@ -1,6 +1,6 @@
 import React from "react";
 
-const Form = ({ InputText, setInputText, todos, setTodos }) => {
+const Form = ({ inputText, setInputText, todos, setTodos }) => {
   const InputTextHandler = (e) => {
     console.log(e.target.value);
     setInputText(e.target.value);
@@ -9,14 +9,14 @@ const Form = ({ InputText, setInputText, todos, setTodos }) => {
     e.preventDefault();
     setTodos([
       ...todos,
-      { text: InputText, completed: false, id: Math.random() * 1000 },
+      { text: inputText, completed: false, id: Math.random() * 1000 },
     ]);
     setInputText("");
   };
   return (
     <form>
       <input
-        value={InputText}
+        value={inputText}
         onChange={InputTextHandler}
         type="text"
         className="todo-input"
